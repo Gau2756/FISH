@@ -3,13 +3,13 @@
 # Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
 #
 .utmp/
-/Fish Game/[Ll]ibrary/
-/Fish Game/[Tt]emp/
-/Fish Game/[Oo]bj/
-/Fish Game/[Bb]uild/
-/Fish Game/[Bb]uilds/
-/Fish Game/[Ll]ogs/
-/Fish Game/[Uu]ser[Ss]ettings/
+/FishGame/[Ll]ibrary/
+/FishGame/[Tt]emp/
+/FishGame/[Oo]bj/
+/FishGame/[Bb]uild/
+/FishGame/[Bb]uilds/
+/FishGame/[Ll]ogs/
+/FishGame/[Uu]ser[Ss]ettings/
 *.log
 
 # By default unity supports Blender asset imports, *.blend1 blender files do not need to be commited to version control.
