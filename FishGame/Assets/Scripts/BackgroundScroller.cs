@@ -19,9 +19,10 @@ public class BackgroundScroller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        int numFrames = (int)Mathf.Floor(xRes / pixelsPerFrame);
-        float effectiveScrollSpeed = xRes / numFrames / 100f;
-        print(effectiveScrollSpeed);
+        // int numFrames = (int)Mathf.Floor(xRes / pixelsPerFrame);
+        // float effectiveScrollSpeed = xRes / numFrames / 100f;
+        // print(effectiveScrollSpeed);
+        float effectiveScrollSpeed = pixelsPerFrame / 100f;
 
         bg1.position = new Vector3(bg1.position.x - effectiveScrollSpeed, bg1.position.y, bg1.position.z);
         bg2.position = new Vector3(bg2.position.x - effectiveScrollSpeed, bg2.position.y, bg2.position.z);
@@ -34,5 +35,10 @@ public class BackgroundScroller : MonoBehaviour
         {
             bg2.position = new Vector3(19.2f, bg2.position.y, bg2.position.z);
         }
+    }
+
+    public void SetScrollSpeed(int value)
+    {
+        pixelsPerFrame = value;
     }
 }

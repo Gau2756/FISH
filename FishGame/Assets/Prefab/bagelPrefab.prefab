@@ -69,7 +69,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.025812626, y: 0.025810122}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -79,7 +79,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 7.8656816, y: 7.3494644}
   m_EdgeRadius: 0
 --- !u!212 &6200148094092597318
 SpriteRenderer:
@@ -151,44 +151,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94b4c31a341ca4bdca19cde6344ed3af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Obstacle
+  type: 0
+  points: 5
   speed: 5
   hardness: 1
-  weight: 5
---- !u!114 &-113611496236821806
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2365859448620797221}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce7f0153aad1a43c4ab4aaafe56afa98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ObstacleCollision
-  kind: 1
-  fishLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  destroyOnHit: 1
-  bagelMultiplier: 1.25
-  bagelDuration: 8
-  starId: 
-  onAnyHit:
-    m_PersistentCalls:
-      m_Calls: []
-  onHardHit:
-    m_PersistentCalls:
-      m_Calls: []
-  onSoftHit:
-    m_PersistentCalls:
-      m_Calls: []
-  onHeartCollected:
-    m_PersistentCalls:
-      m_Calls: []
-  onBagelCollected:
-    m_PersistentCalls:
-      m_Calls: []
-  onStarCollected:
-    m_PersistentCalls:
-      m_Calls: []
+  weight: 3

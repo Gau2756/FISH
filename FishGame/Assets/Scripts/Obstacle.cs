@@ -5,6 +5,8 @@ public class Obstacle : MonoBehaviour
 {
     // C# enum (same idea as Java enum)
     public enum Hardness { Hard, Soft }
+    public ObstacleInfo.Type type;
+    public int points = 0;
 
     [SerializeField] private float speed = 5f;        // leftward speed
     [SerializeField] private Hardness hardness = Hardness.Hard;
@@ -14,6 +16,7 @@ public class Obstacle : MonoBehaviour
 
     // C# expression-bodied property: Java-ish getter, just shorter
     public Hardness Kind => hardness;
+
 
     // Called by the spawner immediately after Instantiate()
     public void Init(float leftwardSpeed, Hardness kind)
@@ -50,5 +53,10 @@ public class Obstacle : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    public void SetSpeed(int value)
+    {
+        speed = value;
     }
 }
