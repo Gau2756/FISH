@@ -13,6 +13,7 @@ public class BackgroundScroller : MonoBehaviour
         bg1 = transform.GetChild(0);
         bg2 = transform.GetChild(1);
         print(bg1 + "" + bg2);
+        pixelsPerFrame = (int)(pixelsPerFrame / 2 * 2);
     }
 
     // Update is called once per frame
