@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2200502330574367898}
   - component: {fileID: 1356431606718722542}
   - component: {fileID: 4630855594880730894}
+  - component: {fileID: -3173058516221264197}
   m_Layer: 0
   m_Name: bush_0
   m_TagString: Untagged
@@ -153,3 +154,41 @@ MonoBehaviour:
   speed: 5
   hardness: 1
   weight: 3
+--- !u!114 &-3173058516221264197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 818990677230399863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce7f0153aad1a43c4ab4aaafe56afa98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ObstacleCollision
+  kind: 1
+  fishLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  destroyOnHit: 1
+  bagelMultiplier: 1.25
+  bagelDuration: 8
+  starId: 
+  onAnyHit:
+    m_PersistentCalls:
+      m_Calls: []
+  onHardHit:
+    m_PersistentCalls:
+      m_Calls: []
+  onSoftHit:
+    m_PersistentCalls:
+      m_Calls: []
+  onHeartCollected:
+    m_PersistentCalls:
+      m_Calls: []
+  onBagelCollected:
+    m_PersistentCalls:
+      m_Calls: []
+  onStarCollected:
+    m_PersistentCalls:
+      m_Calls: []
