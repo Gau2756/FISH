@@ -5,8 +5,8 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed = 5f;
     //public float jumpForce = 10f;
     private Rigidbody2D rb;
-    private bool isGrounded;
-
+    
+ 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -15,8 +15,8 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         // Movement Input
-        float horizontalInput = Input.GetAxis("Horizontal"); // Uses the "Horizontal" axis from Input Manager
-        rb.linearVelocity = new Vector2(horizontalInput * moveSpeed, rb.linearVelocityY);
+        float verticalInput = Input.GetAxis("Vertical"); // Uses the "Horizontal" axis from Input Manager
+        rb.linearVelocity = new Vector2(rb.linearVelocityX, verticalInput * moveSpeed);
 
         // Jump Input
         // if (Input.GetButtonDown("Jump") && isGrounded) // Uses the "Jump" button from Input Manager
