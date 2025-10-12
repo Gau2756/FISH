@@ -1,0 +1,12 @@
+Checklist:
+
+Assets:
+
+
+Programming:
+- Make energy bar deplete naturally over time
+- Make bagels replenish energy bar (to full or percentage?)
+- Make houses provide respite from the current
+- Make fish graphic follow mouse, and move on mouse click instead of w
+- 
+- 
