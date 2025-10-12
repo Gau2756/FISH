@@ -8,6 +8,7 @@ public class Obstacle : MonoBehaviour
 
     [SerializeField] private float speed = 5f;        // leftward speed
     [SerializeField] private Hardness hardness = Hardness.Hard;
+    public int weight = 10;
 
     private Rigidbody2D _rb;
 

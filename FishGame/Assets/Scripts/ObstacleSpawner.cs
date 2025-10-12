@@ -6,17 +6,20 @@ public class ObstacleSpawner : MonoBehaviour
     public GameObject[] obstaclePrefabs;  // Fill this in the Inspector (array/list UI)
 
     [Header("Spawn Settings")]
-    public float spawnInterval = 2f;              // seconds between spawns
+    public float spawnInterval = 1f;              // seconds between spawns
+    public float extraRandomIntervalFactor = 1f;
     public float spawnX = 10f;                    // where obstacles appear (to the right)
     public Vector2 spawnYRange = new Vector2(-2f, 2f);
 
     [Header("Movement")]
     public float obstacleSpeed = 5f;              // how fast they move left
+    private int randomObstacleTotalWeight;
 
     [Header("Randomness")]
     public bool seedFromTime = true;              // seed once at Start()
 
     private float _timer;
+    float randomInterval;
 
     private void Start()
     {
@@ -25,15 +28,24 @@ public class ObstacleSpawner : MonoBehaviour
         {
             Random.InitState((int)System.DateTime.Now.Ticks);
         }
+        randomInterval = Random.value * 3;
+        randomObstacleTotalWeight = 0;
+        foreach (GameObject obj in obstaclePrefabs)
+        {
+            print("Here");
+            randomObstacleTotalWeight += obj.GetComponent<Obstacle>().weight;
+        }
+        print("Total weight: " + randomObstacleTotalWeight);
     }
 
     private void Update()
     {
         _timer += Time.deltaTime;
-        if (_timer >= spawnInterval)
+        if (_timer >= spawnInterval + randomInterval)
         {
             SpawnOnce();
             _timer = 0f;
+            randomInterval = Random.value * extraRandomIntervalFactor;            
         }
     }
 
@@ -42,8 +54,19 @@ public class ObstacleSpawner : MonoBehaviour
         if (obstaclePrefabs == null || obstaclePrefabs.Length == 0) return;
 
         // pick a random prefab
-        int idx = Random.Range(0, obstaclePrefabs.Length); // int: [min, max)
-        GameObject prefab = obstaclePrefabs[idx];
+        int weight = Random.Range(0, randomObstacleTotalWeight);
+        print("Initial weight: " + weight);
+        GameObject prefab = null;
+        foreach (GameObject obj in obstaclePrefabs)
+        {
+            weight -= obj.GetComponent<Obstacle>().weight;
+            print("Weight after subtraction: " + weight);
+            if (weight < 0)
+            {
+                prefab = obj;
+                break;
+            }
+        }
 
         // instantiate (Java: new + add to scene)
         GameObject o = Instantiate(prefab);

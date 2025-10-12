@@ -11,15 +11,15 @@ public class ObstacleRightManager : MonoBehaviour
 
     [Header("Spawn Settings")]
     public float spawnInterval = 2f;         // seconds between spawns
-    public float spawnXLeft = -10f;          // where obstacles appear (to the LEFT)
+    public float spawnXRight = 10f;          // where obstacles appear (to the RIGHT)
     public Vector2 spawnYRange = new Vector2(-2f, 2f);
 
     [Header("Movement")]
-    public float baseSpeed = 5f;             // rightward speed (units/sec toward +X)
+    public float baseSpeed = 5f;             // rightward speed (units/sec toward -X)
     public float speedJitter = 0f;           // optional ± per obstacle speed variation
 
     [Header("Despawn")]
-    public float rightLimitX = 20f;          // when obstacle x > this, destroy it
+    public float leftLimitX = -20f;          // when obstacle x < this, destroy it
 
     [Header("Randomness")]
     public bool seedFromTime = true;         // seed global RNG once
@@ -62,7 +62,7 @@ public class ObstacleRightManager : MonoBehaviour
 
         // Position at left, random Y
         float y = Random.Range(spawnYRange.x, spawnYRange.y);
-        o.transform.position = new Vector3(spawnXLeft, y, 0f);
+        o.transform.position = new Vector3(spawnXRight, y, 0f);
 
         // Compute speed with optional jitter
         float speed = baseSpeed;
@@ -97,7 +97,7 @@ public class ObstacleRightManager : MonoBehaviour
             // Add despawn watcher
             var despawn = o.GetComponent<DespawnWhenRightOfX>();
             if (despawn == null) despawn = o.AddComponent<DespawnWhenRightOfX>();
-            despawn.xLimit = rightLimitX;
+            despawn.xLimit = leftLimitX;
         }
         else
         {
@@ -108,7 +108,7 @@ public class ObstacleRightManager : MonoBehaviour
 
             var despawn = o.GetComponent<DespawnWhenRightOfX>();
             if (despawn == null) despawn = o.AddComponent<DespawnWhenRightOfX>();
-            despawn.xLimit = rightLimitX;
+            despawn.xLimit = leftLimitX;
         }
     }
 }
